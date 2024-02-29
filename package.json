@@ -1,0 +1,23 @@
+{
+	"author": "Leawind",
+	"name": "docs-template",
+	"description": "A documentation template build by vitepress",
+	"version": "1.0.0",
+	"license": "MIT",
+	"scripts": {
+		"docs:dev": "vitepress dev docs",
+		"docs:build": "vitepress build docs",
+		"docs:preview": "vitepress preview docs",
+		"docs:bp": "vitepress build docs && vitepress preview docs"
+	},
+	"directories": {
+		"doc": "docs"
+	},
+	"private": true,
+	"dependencies": {
+		"vitepress": "1.0.0-rc.44"
+	},
+	"devDependencies": {
+		"@types/node": "^20.11.19"
+	}
+}
