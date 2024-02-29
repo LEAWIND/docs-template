@@ -1,4 +1,3 @@
-import { title } from "process";
 import { buildSidebar } from "../builders.mjs";
 
 export default {

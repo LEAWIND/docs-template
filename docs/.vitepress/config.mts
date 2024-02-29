@@ -31,5 +31,6 @@ export default defineConfig({
 			},
 		},
 	},
-	locales: locales(),
+	locales: await locales(),
 });
+

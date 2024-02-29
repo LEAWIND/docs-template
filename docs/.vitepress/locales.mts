@@ -3,10 +3,13 @@ const langs = [
 	"zh-CN",
 ];
 
-const locales = () => {
+/**
+ * Load locale configs
+ */
+const locales = async () => {
 	const locals = {};
 	for (const lang of langs)
-		locals[lang] = import(`./locales/${lang}.mts`) as any;
+		locals[lang] = (await import(`./locales/${lang}.mts`)).default;
 	return locals as LocaleConfig;
 };
 
