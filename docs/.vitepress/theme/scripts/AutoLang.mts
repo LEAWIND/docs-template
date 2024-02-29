@@ -5,7 +5,8 @@ import { langs } from '../../locales.mts';
  */
 (async () => {
 	if (!globalThis.window) return;
-	if (getURL().searchParams.has('autolang')) {
+	const url = getURL();
+	if (url.pathname === '/' || url.searchParams.has('autolang')) {
 		jumpToLang(navigator.language);
 	}
 })();
