@@ -1,4 +1,4 @@
-import langs from '../../locales/langs.mts';
+import { langs } from '../../locales.mts';
 
 /**
  * 在url后指定autolang参数后，会自动跳转到当前浏览器语言

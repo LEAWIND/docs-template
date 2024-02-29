@@ -1,5 +1,5 @@
 import { defineConfig } from 'vitepress';
-import Locales from './locales/index.mjs';
+import locales from './locales.mjs';
 
 export default defineConfig({
 	base: '/',
@@ -31,5 +31,5 @@ export default defineConfig({
 			},
 		},
 	},
-	locales: Locales,
+	locales: locales(),
 });
