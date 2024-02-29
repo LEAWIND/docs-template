@@ -4,14 +4,12 @@
  * 如果没有 search 参数，则无操作。
  * 
  * 自动打开搜索框，将url参数中 search 的值填入框中。
- * 
- * 编辑框中内容时，search 参数会同步更新。
  */
 (async () => {
-	if (!window) return;
+	if (!globalThis.window) return;
 	const question = getQuestionFromUrl();
 	if (question === null) return;
-	
+
 	console.debug('Question from search param: ', question);
 
 	console.debug("Waiting for document loading ...");
@@ -20,7 +18,7 @@
 	console.debug('Auto open search box');
 	await openSearch();
 
-	const ele_search_input = await select("#localsearch-input");
+	const ele_search_input: HTMLInputElement = await select("#localsearch-input") as HTMLInputElement;
 
 	console.debug('Focus on input element: ', ele_search_input);
 	ele_search_input.focus();
@@ -44,7 +42,7 @@ async function sleep(t = 0) {
 	return new Promise(resolve => setTimeout(resolve, t));
 }
 
-async function select(selector, interval = 200) {
+async function select(selector, interval = 200): Promise<HTMLElement> {
 	return new Promise(resolve => {
 		const detectLoop = setInterval(() => {
 			const result = document.querySelector(selector);

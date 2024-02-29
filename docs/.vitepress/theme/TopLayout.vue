@@ -1,7 +1,7 @@
 <script setup>
 
-import AutoLang from './scripts/AutoLang.mts';
-AutoLang.autoJump();
+import './scripts/AutoLang.mts';
+import './scripts/AutoSearch.mts'
 
 
 

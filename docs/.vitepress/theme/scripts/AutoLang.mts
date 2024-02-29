@@ -1,41 +1,40 @@
 import langs from '../../locales/langs.mts';
 
-class AutoLang {
-
-	static getURL(): URL {
-		return new URL(location.href);
+/**
+ * 在url后指定autolang参数后，会自动跳转到当前浏览器语言
+ */
+(async () => {
+	if (!globalThis.window) return;
+	if (getURL().searchParams.has('autolang')) {
+		jumpToLang(navigator.language);
 	}
+})();
 
-	static autoJump(): void {
-		const url = this.getURL();
-		if (url.searchParams.has('autolang')) {
-			this.jumpToLang(navigator.language);
-		}
+function getURL(): URL {
+	return new URL(location.href);
+}
+
+function jumpToLang(lang: string): void {
+	const url = getURL();
+	const newUrl = getURL();
+
+	newUrl.searchParams.delete('autolang');
+	const currentLang = getCurrentLang();
+
+	if (currentLang === lang) return;
+
+	if (isLangSupported(currentLang)) {
+		newUrl.pathname = newUrl.pathname.replace(/(?<=^\/*)[^\/]+/, lang);
+	} else {
+		newUrl.pathname = `/${lang}${url.pathname}`;
 	}
+	location.replace(newUrl.toString());
+}
 
-	static jumpToLang(lang: string): void {
-		const url = this.getURL();
-		const newUrl = this.getURL();
+function getCurrentLang(): string {
+	return getURL().pathname.replace(/(^\/*)|(\/.*)/g, '');
+}
 
-		newUrl.searchParams.delete('autolang');
-		const currentLang = this.getCurrentLang();
-
-		if (currentLang === lang) return;
-
-		if (this.isLangSupported(currentLang)) {
-			newUrl.pathname = newUrl.pathname.replace(/(?<=^\/*)[^\/]+/, lang);
-		} else {
-			newUrl.pathname = `/${lang}${url.pathname}`;
-		}
-		location.replace(newUrl.toString());
-	}
-
-	static getCurrentLang(): string {
-		return this.getURL().pathname.replace(/(^\/*)|(\/.*)/g, '');
-	}
-
-	static isLangSupported(lang: string): boolean {
-		return langs.indexOf(lang) !== -1;
-	}
-};
-export default AutoLang;
+function isLangSupported(lang: string): boolean {
+	return langs.indexOf(lang) !== -1;
+}
