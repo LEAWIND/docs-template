@@ -1,11 +1,7 @@
 import { defineConfig } from 'vitepress';
-import locales from './locales/index.mjs';
+import Locales from './locales/index.mjs';
 
-// https://vitepress.dev/reference/site-config
 export default defineConfig({
-	head: [
-		['script', { src: '/script/search.js', }],
-	],
 	base: '/',
 	cleanUrls: true,
 	router: {
@@ -35,5 +31,5 @@ export default defineConfig({
 			},
 		},
 	},
-	locales: locales,
+	locales: Locales,
 });
