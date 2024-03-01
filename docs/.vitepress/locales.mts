@@ -1,6 +1,6 @@
 const langs = [
-	"en-US",
-	"zh-CN",
+	'en-US',
+	'zh-CN',
 ];
 
 /**
@@ -14,7 +14,6 @@ const locales = async () => {
 };
 
 import { LocaleConfig } from "vitepress";
-
 
 export { langs };
 export default locales;
