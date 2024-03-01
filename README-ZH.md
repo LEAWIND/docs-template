@@ -1,3 +1,6 @@
+| [English](./README.md) | 中文 |
+| ---------------------- | ---- |
+
 # docs-template
 
 一个使用 vitepress 构建的文档模板

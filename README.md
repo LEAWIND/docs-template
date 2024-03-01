@@ -1,3 +1,6 @@
+| English | [中文](./README-ZH.md) |
+| ------- | ---------------------- |
+
 # docs-template
 
 A documentation template build by vitepress
