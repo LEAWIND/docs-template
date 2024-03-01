@@ -1,11 +1,6 @@
-| [English](./README.md) | 中文 |
-| ---------------------- | ---- |
-
 # docs-template
 
 一个使用 vitepress 构建的文档模板
-
-查看 [在线示例](https://leawind.github.io/docs-template/zh-CN/?autolang)
 
 ## 特性
 
@@ -26,8 +21,8 @@
 例如，语言标识为 `ru`。
 
 1. 创建文件夹 `docs/ru`
-2. 添加语言配置 `docs/.vitepress/locales/ru.mts`
-3. 在 `docs/.vitepress/locales.mts` 中添加语言定义
+1. 添加语言配置 `docs/.vitepress/locales/ru.mts`
+1. 在 `docs/.vitepress/locales.mts` 中添加语言定义
 	```ts {4}
 	const langs = [
 		'en-US',
@@ -43,8 +38,8 @@
 例如，区块名称为 `readme`。
 
 1. 创建目录 `docs/readme/`
-2. 创建索引页面 `docs/readme/index.md`
-3. 添加到导航栏
+1. 创建索引页面 `docs/readme/index.md`
+1. 添加到导航栏
 	编辑 `docs/.vitepress/locales/` 下每个语言脚本
 	```ts {6-7,12-13}
 	...
@@ -92,7 +87,7 @@ export default defineConfig({
 		...
 	})
 	```
-2. 编辑 `docs/.vitepress/builders.mts` 文件
+1. 编辑 `docs/.vitepress/builders.mts` 文件
 	```ts
 	export function buildSidebar(dir: string, docsRoot: string = 'pages'): any {
 

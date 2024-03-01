@@ -9,8 +9,8 @@ hero:
   image: 
   actions:
     - theme: brand
-      text: 💰Donate
-      link: https://leawind.github.io/en/donate
+      text: README
+      link: ./README
     - theme: alt
       text: File Structure Example
       link: ./Example/
@@ -18,15 +18,15 @@ hero:
       text: Markdown Example
       link: ./markdown-example
 features:
-  - title: Leawind's Third Person
-    details: A Minecraft mod, provides enhanced third person
+  - title: Feature A
+    details: details
     link: .
     icon: 
       dark: https://img.shields.io/curseforge/dt/930880?style=flat&logo=curseforge&logoColor=f16436&label=%20&color=4f4f4f
       light: https://img.shields.io/curseforge/dt/930880?style=flat&logo=curseforge&logoColor=4f4f4f&label=%20&color=f16436
       width: 81
-  - title: MCAFS
-    details: A FTP server for accessing global assets of Minecraft
+  - title: Feature B
+    details: details
     link: .
     icon: 🗂
 ---

@@ -1,11 +1,6 @@
-| English | [中文](./README-ZH.md) |
-| ------- | ---------------------- |
-
 # docs-template
 
 A documentation template build by vitepress
-
-See [live example](https://leawind.github.io/docs-template/en-US/?autolang)
 
 ## Features
 
