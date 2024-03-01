@@ -6,7 +6,7 @@ export default {
 	label: 'English',
 	lang: lang,
 	title: "Leawind's Docs Template",
-	titleTemplate: ":title | Leawind's Doc",
+	titleTemplate: ":title | Leawind's Doc Template",
 	description: "A documentation template build by vitepress",
 	themeConfig: {
 		nav: [

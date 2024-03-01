@@ -8,6 +8,9 @@ export default defineConfig({
 	router: {
 		prefetchLinks: true,
 	},
+	head: [
+		['link', { rel: 'icon', href: '/favicon.ico' }]
+	],
 	themeConfig: {
 		externalLinkIcon: true,
 		socialLinks: [

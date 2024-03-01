@@ -5,9 +5,9 @@ const lang = 'zh-CN'
 export default {
 	label: '简体中文',
 	lang: lang,
-	title: "Leawind的文档",
-	titleTemplate: ":title | Leawind的文档",
-	description: "用 vitepress 构建的静态网站",
+	title: "Leawind的文档模板",
+	titleTemplate: ":title | Leawind的文档模板",
+	description: "用 vitepress 构建的静态网站模板",
 	themeConfig: {
 		nav: [
 			{
