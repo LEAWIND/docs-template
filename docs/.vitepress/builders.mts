@@ -11,7 +11,7 @@ export function buildSidebar(dir: string, name: string, docsRoot: string = 'docs
 	dir = path.join(docsRoot, dir.replace(/^\/+/g, ''));
 	const sidebar = [parseDir(dir, name)];
 	sidebar[0].link = path.relative(docsRoot, dir).replace(/(^\/*)|(\/*$)/g, '/');
-	// console.debug(JSON.stringify(sidebar, null, 2));
+	console.debug(JSON.stringify(sidebar, null, 2));
 	return sidebar;
 
 	/**
@@ -19,10 +19,11 @@ export function buildSidebar(dir: string, name: string, docsRoot: string = 'docs
 	 * @param [name=null] 显示名称
 	 */
 	function parseDir(dir: string, name: string | null = null) {
-		const dirName = name || path.basename(dir);
+		const dirName = name || getTitle(dir);
 		return {
 			text: dirName,
 			collapsed: true,
+			link: path.relative(docsRoot, dir).replace(/(^\/*)|(\/*$)/g, '/'),
 			items: fs.readdirSync(dir).map(oName => {
 				const oPath = path.join(dir, oName);
 				if (!isOrHasPageFile(oPath)) return;
@@ -33,7 +34,7 @@ export function buildSidebar(dir: string, name: string, docsRoot: string = 'docs
 						link: '/' + path.relative(docsRoot, oPath),
 					};
 				} else {
-					return parseDir(oPath, oName);
+					return parseDir(oPath);
 				}
 			}).filter(i => i),
 		};
@@ -61,14 +62,19 @@ export function sidebarTree(dir: string, name: string, items: string[], docsRoot
 
 }
 
-
 function getTitle(filePath: string): string {
-	const src: string = fs.readFileSync(filePath, 'utf-8');
-	const matches = /(\n|^)\s*#*#(.*)/.exec(src);
-	const result = matches === null ? path.basename(filePath) : matches[2];
-
-	// console.debug(filePath, result);
-	return result;
+	if (!fs.existsSync(filePath))
+		return path.basename(filePath);
+	const stat = fs.statSync(filePath);
+	if (stat.isFile()) {
+		const src: string = fs.readFileSync(filePath, 'utf-8');
+		const matches = /(\n|^)\s*#*#(.*)/.exec(src);
+		return matches === null ? path.basename(filePath) : matches[2];
+	} else if (stat.isDirectory()) {
+		return getTitle(path.join(filePath, 'index.md'));
+	} else {
+		return path.basename(filePath);
+	}
 }
 
 function isPageFile(filePath) {

@@ -1,11 +1,5 @@
 import { langs } from '../../locales.mts';
 
-/*
-/ => /${base}/${targetLang}/
-/${lang} => /${base}/${targetLang}/
-/${lang}/${path} => /${base}/${targetLang}/${path}
-/${path} => /${base}/${targetLang}/${path}
-*/
 /**
  * 在url后指定autolang参数后，会自动跳转到当前浏览器语言
  */
