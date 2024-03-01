@@ -12,8 +12,8 @@ hero:
       text: 💰Donate
       link: https://leawind.github.io/en/donate
     - theme: alt
-      text: Secondary directory
-      link: ./L2/
+      text: File Structure Example
+      link: ./Example/
     - theme: alt
       text: Markdown Example
       link: ./markdown-example

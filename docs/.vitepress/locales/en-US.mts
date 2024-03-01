@@ -13,16 +13,14 @@ export default {
 			{
 				text: 'Dropdown Menu',
 				items: [
-					{ text: 'Doc Structure Example', link: `/${lang}/L2/` },
+					{ text: 'File Structure Example', link: `/${lang}/Example/` },
 					{ text: 'Markdown Example', link: `/${lang}/markdown-example` },
 				]
 			},
-			{ text: 'Readme', link: `/${lang}/readme/` },
 			{ text: 'Donate', link: 'https://leawind.github.io/en/donate' },
 		],
 		sidebar: {
-			'/en-US/L2': buildSidebar(`/${lang}/L2`, 'Secondary Directory'),
-			'/en-US/readme': buildSidebar(`/${lang}/readme`, 'Readme'),
+			'/en-US/Example': buildSidebar(`/${lang}/Example`),
 		},
 		footer: {
 			message: 'This is footer message',

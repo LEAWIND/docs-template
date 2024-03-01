@@ -7,10 +7,9 @@ import path from 'path/posix';
  * @param name 侧栏名称
  * @param [docsRoot='docs'] 文档根目录
  */
-export function buildSidebar(dir: string, name: string, docsRoot: string = 'docs'): any {
+export function buildSidebar(dir: string, docsRoot: string = 'docs'): any {
 	dir = path.join(docsRoot, dir.replace(/^\/+/g, ''));
-	const sidebar = [parseDir(dir, name)];
-	sidebar[0].link = path.relative(docsRoot, dir).replace(/(^\/*)|(\/*$)/g, '/');
+	const sidebar = [parseDir(dir)];
 	// console.debug(JSON.stringify(sidebar, null, 2));
 	return sidebar;
 

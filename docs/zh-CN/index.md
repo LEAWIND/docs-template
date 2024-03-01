@@ -12,8 +12,8 @@ hero:
       text: 💰捐赠
       link: https://leawind.github.io/zh-CN/donate
     - theme: alt
-      text: 二级目录
-      link: ./L2/
+      text: 文件结构示例
+      link: ./Example/
     - theme: alt
       text: Markdown示例
       link: ./markdown-example

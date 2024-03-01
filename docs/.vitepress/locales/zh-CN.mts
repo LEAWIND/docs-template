@@ -13,16 +13,14 @@ export default {
 			{
 				text: '下拉菜单',
 				items: [
-					{ text: '文档结构示例', link: `/${lang}/L2/` },
+					{ text: '文件结构示例', link: `/${lang}/Example/` },
 					{ text: 'Markdown示例', link: `/${lang}/markdown-example` },
 				]
 			},
-			{ text: 'Readme', link: `/${lang}/readme/` },
 			{ text: '捐赠', link: 'https://leawind.github.io/zh-CN/donate' },
 		],
 		sidebar: {
-			'/zh-CN/L2': buildSidebar(`/${lang}/L2`, '二级目录'),
-			'/zh-CN/readme': buildSidebar(`/${lang}/readme`, 'Readme'),
+			'/zh-CN/Example': buildSidebar(`/${lang}/Example`),
 		},
 		footer: {
 			message: '这是页脚信息',

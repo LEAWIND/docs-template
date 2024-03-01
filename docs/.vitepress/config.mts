@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress';
 import locales from './locales.mjs';
 
 export default defineConfig({
-	base: '/BASE',
+	base: '/',
 	srcDir: '.',
 	cleanUrls: true,
 	router: {
