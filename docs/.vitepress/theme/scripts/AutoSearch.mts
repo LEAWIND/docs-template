@@ -5,8 +5,7 @@
  * 
  * 自动打开搜索框，将url参数中 search 的值填入框中。
  */
-(async () => {
-	if (!globalThis.window) return;
+async function AutoSearch() {
 	const question = getQuestionFromUrl();
 	if (question === null) return;
 
@@ -36,7 +35,8 @@
 		if (!isSearchOpen())
 			setQuestionToUrl(null);
 	}
-})();
+}
+export default AutoSearch;
 
 async function sleep(t = 0) {
 	return new Promise(resolve => setTimeout(resolve, t));
