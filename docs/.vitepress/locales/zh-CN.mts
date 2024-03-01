@@ -1,4 +1,4 @@
-import { buildSidebar } from "../builders.mjs";
+import { buildSidebar } from "../builders.mts";
 
 const lang = 'zh-CN'
 

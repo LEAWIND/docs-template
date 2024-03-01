@@ -1,5 +1,5 @@
 import { defineConfig } from 'vitepress';
-import locales from './locales.mjs';
+import locales from './locales.mts';
 
 export default defineConfig({
 	base: '/',
