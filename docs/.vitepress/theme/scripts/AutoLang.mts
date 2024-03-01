@@ -4,9 +4,6 @@ import { langs } from '../../locales.mts';
  * 在url后指定autolang参数后，会自动跳转到当前浏览器语言
  */
 async function AutoLang() {
-	console.debug('base: ', getBase());
-	console.debug('url: ', getURL());
-
 	const url = getURL();
 	const bp = new BasedPath(url.pathname, getBase());
 	const expectedLanguage = getExpectedLanguage();

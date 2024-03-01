@@ -11,7 +11,7 @@ export function buildSidebar(dir: string, name: string, docsRoot: string = 'docs
 	dir = path.join(docsRoot, dir.replace(/^\/+/g, ''));
 	const sidebar = [parseDir(dir, name)];
 	sidebar[0].link = path.relative(docsRoot, dir).replace(/(^\/*)|(\/*$)/g, '/');
-	console.debug(JSON.stringify(sidebar, null, 2));
+	// console.debug(JSON.stringify(sidebar, null, 2));
 	return sidebar;
 
 	/**
