@@ -10,7 +10,7 @@ import path from 'path/posix';
 export function buildSidebar(dir: string, docsRoot: string = 'docs'): any {
 	dir = path.join(docsRoot, dir.replace(/^\/+/g, ''));
 	const sidebar = [buildDir(dir)];
-	console.debug(JSON.stringify(sidebar, null, 2));
+	// console.debug(JSON.stringify(sidebar, null, 2));
 	return sidebar;
 
 	/**
