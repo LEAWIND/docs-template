@@ -1,6 +1,6 @@
 import { buildSidebar } from "../builders.mts";
 
-const lang = 'zh-CN'
+const lang = 'zh-CN';
 
 export default {
 	label: '简体中文',
