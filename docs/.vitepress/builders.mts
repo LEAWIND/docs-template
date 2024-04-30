@@ -67,23 +67,27 @@ export function buildSidebar(dir: string, docsRoot: string = 'docs'): DefaultThe
 	 */
 	function parseFile(filePath: string): FileDescriptor {
 		const defaultTitle = path.basename(filePath);
-		if (!fs.existsSync(filePath)) {
-			return { title: defaultTitle };
+		if (fs.existsSync(filePath)) {
+			const stat = fs.statSync(filePath);
+			if (stat.isFile()) {
+				const srcFile: string = fs.readFileSync(filePath, 'utf-8');
+				const matches = /(\n|^)\s*#+\s*(.*)/.exec(srcFile);
+				return {
+					title: matches === null ? defaultTitle : matches[2],
+					src: srcFile,
+					titleOnly: srcFile.replace(/(\n|^)\s*#+\s*.*(\n|$)/, '').trim() === '',
+				};
+			} else if (stat.isDirectory()) {
+				const indexFilePath = path.join(filePath, 'index.md');
+				if (fs.existsSync(indexFilePath)) {
+					return parseFile(indexFilePath);
+				}
+			}
 		}
-		const stat = fs.statSync(filePath);
-		if (stat.isFile()) {
-			const srcFile: string = fs.readFileSync(filePath, 'utf-8');
-			const matches = /(\n|^)\s*#+\s*(.*)/.exec(srcFile);
-			return {
-				title: matches === null ? defaultTitle : matches[2],
-				src: srcFile,
-				titleOnly: srcFile.replace(/(\n|^)\s*#+\s*.*(\n|$)/, '').trim() === '',
-			};
-		} else if (stat.isDirectory()) {
-			return parseFile(path.join(filePath, 'index.md'));
-		} else {
-			return { title: defaultTitle };
-		}
+		return {
+			title: defaultTitle,
+			titleOnly: true,
+		};
 	}
 
 	/**
